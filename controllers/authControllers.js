@@ -48,7 +48,7 @@ const authController =({
             let token = jwt.sign({ ...result} , process.env.SECURE_KEY)
             res.send(sendResponse(true,{user:result, token},"Login Successfully"))
           }else{
-            res.send(sendResponse(false,null ,"Credential Error"))
+            res.send(sendResponse(false,null ,"Password Error"))
           }
         }else{
           res.send(sendResponse(false, null, "User Doesn't Exist"));
