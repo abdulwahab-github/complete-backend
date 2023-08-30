@@ -70,7 +70,7 @@ const authController =({
         }else{
             res.send(sendResponse(true,result)).status(200)        
         }
-      }
+      },
     protected: async (req, res, next) => {
         let token = req.headers.authorization;
         if (token) {
