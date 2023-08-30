@@ -62,6 +62,15 @@ const authController =({
           console.log(e)
         })
       },
+    getuserByid:async (req, res) => {
+        let id = req.params.id;
+        let result = await userModel.findById(id)
+        if(!result){
+            res.send(sendResponse(false,null ,"data not found")).status(404)        
+        }else{
+            res.send(sendResponse(true,result)).status(200)        
+        }
+      }
     protected: async (req, res, next) => {
         let token = req.headers.authorization;
         if (token) {
