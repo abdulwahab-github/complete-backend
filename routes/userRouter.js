@@ -8,7 +8,7 @@ const AuthController = require("../controllers/authControllers")
 route.post("/signup",AuthController.signup)
 route.post("/login", AuthController.login)
 route.get("/" ,AuthController.getuser )
-route.get("/:id",AuthController.getuserByid);
+
 route.get("/test", AuthController.protected, (req, res) => {
   res.send("/User Valid");
 });
