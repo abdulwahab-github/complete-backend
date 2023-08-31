@@ -9,7 +9,7 @@ route.post("/signup",AuthController.signup)
 route.post("/login", AuthController.login)
 route.get("/" ,AuthController.getuser )
 route.get("/:id",AuthController.getuserByid)
-
+route.post("/logout", AuthController.logout)
 
 route.get("/test", AuthController.protected, (req, res) => {
   res.send("/User Valid");
