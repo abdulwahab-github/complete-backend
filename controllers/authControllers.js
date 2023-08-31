@@ -73,6 +73,18 @@ const authController =({
     res.status(500).json({ error: 'An error occurred while fetching user.' });
   }
 },
+    logout:async(req, res) => {
+  // Perform any necessary logout-related operations (e.g., destroying tokens, sessions)
+  // For example, if you're using JWT tokens, you might want to invalidate the token on the server-side.
+  
+  // Assuming you're using JWT tokens, here's how you might invalidate the token:
+  // You can store invalidated tokens in a database or cache.
+  // This is a simplified example; you should implement token invalidation more securely.
+  const tokenToInvalidate = req.headers.authorization.split(' ')[1];
+  invalidatedTokens.push(tokenToInvalidate);
+
+  res.send(sendResponse(true, null, "Logged out successfully"));
+},
     protected: async (req, res, next) => {
         let token = req.headers.authorization;
         if (token) {
