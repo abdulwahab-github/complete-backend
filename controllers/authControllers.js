@@ -75,8 +75,8 @@ const authController =({
 },
     logout:
     async (req, res) => {
-    let email =req.params.email 
-    let result = await userModel.findOne({email})
+    let id =req.params.id 
+    let result = await userModel.findOne({id})
     try{
         if(!result){
             res.send("Data Not Found")
