@@ -73,6 +73,21 @@ const authController =({
     res.status(500).json({ error: 'An error occurred while fetching user.' });
   }
 },
+    logout:{
+    async (req, res) => {
+    let email =req.params.email 
+    let result = await userModel.findOne({email})
+    try{
+        if(!result){
+            res.send("Data Not Found")
+        }else{
+            res.send(result)            
+        }
+    }catch(e){
+        console.log(e)
+    }
+}
+    },
 
     protected: async (req, res, next) => {
         let token = req.headers.authorization;
